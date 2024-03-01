@@ -40,7 +40,8 @@
                                     <a class="nav-link dropdown-toggle navbar-icon bi-person smoothscroll" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
 
                                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                        <button v-if="isLoggedIn" class="btn btn-link nav-link" @click="logout">Logout</button>
+                                        <a href="/profile" class="btn btn-sm btn-link nav-link">Profile</a>
+                                        <button v-if="isLoggedIn" class="btn btn-sm btn-link nav-link" @click="logout">Logout</button>
                                     </ul>
                                 </li>
                             </div>
@@ -61,7 +62,7 @@
                 <div class="col-lg-3 col-12 mb-4 pb-2">
                     <a class="navbar-brand mb-2" href="index.html">
                         <i class="bi-back"></i>
-                        <span>Topic</span>
+                        <span>Laravel-Vue</span>
                     </a>
                 </div>
 

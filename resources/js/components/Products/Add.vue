@@ -1,13 +1,22 @@
 <template>
     <section class="section-padding section-bg">
-        <div class="container">
+        <header class="site-header d-flex flex-column justify-content-center align-items-center">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-5 col-12">
+                        <h2 class="text-white">Add Product</h2>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Add Product</h4>
-                        </div>
-                        <div class="card-body">
+                    
+                        
                             <form @submit.prevent="create">
                                 <div class="row">
                                     <div class="col-12 mb-2">
@@ -33,8 +42,8 @@
                                     </div>
                                 </div>                        
                             </form>
-                        </div>
-                    </div>
+                        
+                    
                 </div>
             </div>
         </div>

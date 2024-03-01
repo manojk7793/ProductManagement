@@ -1,14 +1,24 @@
 <template>
     <section class="section-padding section-bg">
-        <div class="container">
+        <header class="site-header d-flex flex-column justify-content-center align-items-center">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-5 col-12">
+                        <h2 class="text-white">Products List</h2>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-12 mb-2 text-end">
                     <button @click="createProduct()" class="btn btn-primary">Create</button>
                 </div>
                 <div class="col-12">
-                    <div class="">
-                        <h4>Products</h4>
-                    </div>
+                    
                     <table class="table table-striped" id="productsTable">
                         <thead>
                             <tr>
