@@ -37,12 +37,17 @@
                                             <input type="text" class="form-control" v-model="product.price">
                                         </div>
                                     </div>
+                                    <div class="col-12 mb-2">
+                                        <div class="form-group">
+                                            <label>Product Image</label>
+                                            <input type="file" class="form-control-file" @change="handleImageUpload">
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Create</button>
                                     </div>
                                 </div>                        
-                            </form>
-                        
+                            </form>                        
                     
                 </div>
             </div>

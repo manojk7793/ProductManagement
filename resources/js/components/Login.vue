@@ -65,6 +65,7 @@
                     });
                     
                     localStorage.setItem('authToken', response.data.token);
+                    localStorage.setItem('isLoggedIn', 'true'); // Update localStorage
                     console.log('Login successful:', response.data);
 
                     // Clear fields after successful login

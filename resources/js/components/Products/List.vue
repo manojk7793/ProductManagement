@@ -98,7 +98,6 @@ export default {
             });
         },
         handleButtonClick(event) {
-            console.log('Button clicked:', event.target);
             const target = event.target;
             if (target.dataset.action === 'edit') {
                 this.editProduct(parseInt(target.dataset.id));

@@ -10,8 +10,8 @@ import ProductEdit from './components/Products/Edit.vue';
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register },
+  { path: '/login', component: Login, meta: { requiresGuest: true } },
+  { path: '/register', component: Register, meta: { requiresGuest: true } },
   { path: '/profile', component: Profile, meta: { requiresAuth: true } },
   { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
   { path: '/products', component: ProductList, meta: { requiresAuth: true } },

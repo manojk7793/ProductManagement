@@ -16,7 +16,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-lg-5 me-lg-auto" :key="!isLoggedIn">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
                     <li class="nav-item">
                         <a v-if="!isLoggedIn" class="nav-link" href="/">Home</a>
                     </li>
@@ -34,7 +34,7 @@
                 <div class="d-none d-lg-block" v-if="isLoggedIn">
 
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-lg-5 me-lg-auto" :key="!isLoggedIn">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <div class="ms-auto"> <!-- Added wrapper for dropdown nav-item -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle navbar-icon bi-person smoothscroll" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
@@ -147,24 +147,25 @@ import '../assets/js/custom.js';
 export default {
     data() {
         return {
-            isLoggedIn: localStorage.getItem('isLoggedIn') === 'true' // Retrieve from localStorage
+            isLoggedIn: localStorage.getItem('authToken') !== null
         };
     },
+    created() {
+        this.$router.afterEach((to, from) => {
+            this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        });
+    },
     mounted() {
-         // Check if authToken is present in local storage
-         if (localStorage.getItem('authToken')) {
-            this.isLoggedIn = true;
-            localStorage.setItem('isLoggedIn', 'true'); // Update localStorage
-        } else {
-            this.isLoggedIn = false;
-            localStorage.setItem('isLoggedIn', 'false'); // Update localStorage
-        }
+        this.updateLoginStatus();
     },
     methods: {
+        updateLoginStatus() {
+            this.isLoggedIn = localStorage.getItem('authToken') !== null;
+            localStorage.setItem('isLoggedIn', this.isLoggedIn.toString());
+        },
         logout() {
-            localStorage.removeItem('authToken');
-            this.isLoggedIn = false;
-            localStorage.setItem('isLoggedIn', 'false'); 
+            localStorage.clear();
+            this.updateLoginStatus();
             this.$router.push('/login');
         }
     }

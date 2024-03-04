@@ -24,6 +24,12 @@ router.beforeEach((to, from, next) => {
         } else {
             next();
         }
+    } else if (to.matched.some(record => record.meta.requiresGuest)) {
+        if (isLoggedIn) {
+            next('/products');
+        } else {
+            next();
+        }
     } else {
         next();
     }
